@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pixel Console Birthday Card</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background: #000000;
+      font-family: 'Press Start 2P', cursive;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .console {
+      background: #eae2b7;
+      border: 12px solid #5e503f;
+      border-radius: 20px;
+      padding: 20px;
+      width: 800px;
+      box-shadow: 0 0 20px #ffffff;
+      position: relative;
+    }
+
+    .screen {
+      background: #B86F50;
+      border: 6px inset #e5e5e5;
+      padding: 20px;
+      color: #9b2226;
+      min-height: 300px;
+      position: relative;
+    }
+
+    .npc {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .npc img {
+      width: 200px;
+      height: 200px;
+      image-rendering: pixelated;
+      margin-right: 20px;
+    }
+
+    .typewriter {
+      color: rgb(0, 0, 0);
+      white-space: pre-wrap;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .pixel-button {
+      background: #ddb892;
+      color: #000;
+      padding: 10px;
+      text-align: center;
+      text-decoration: none;
+      border: 4px solid #000814;
+      box-shadow: 4px 4px #333;
+      transition: all 0.2s ease-in-out;
+      cursor: pointer;
+    }
+
+    .pixel-button:hover {
+      background: #7f5539;
+      color: #f8f9fa;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+    <audio id="bgMusic" src="Assests/space-cloud-333647.mp3" loop autoplay></audio>
+
+
+  <div class="console">
+    <div class="screen">
+      <div class="npc">
+        <img src="Assests/cat.gif" alt="NPC">
+        <div class="typewriter" id="typewriterText"></div>
+      </div>
+      <div class="buttons">
+        <a href="https://puliharshitha.github.io/Music/" class="pixel-button">Tunes</a>
+        <a href="https://puliharshitha.github.io/Ukulela/" class="pixel-button">Song Chrods</a>
+        <a href="https://puliharshitha.github.io/2048/" class="pixel-button">Mini Game</a>
+        <a href="https://puliharshitha.github.io/wishes/" class="pixel-button">Words</a>
+        <a href="page5.html" class="pixel-button">Map</a>
+        <a href="https://puliharshitha.github.io/greetings/" class="pixel-button">Final Message</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Audio element for typewriter sound -->
+  
+  <script>
+
+document.addEventListener("DOMContentLoaded", function () {
+  const typewriterText = document.getElementById("typewriterText");
+  const message = "Hello, Player!\nWelcome to your birthday adventure.\nUse the buttons below to explore your surprises!";
+  let i = 0;
+
+  function typeWriter() {
+    if (i < message.length) {
+      typewriterText.innerHTML += message.charAt(i);
+      i++;
+      setTimeout(typeWriter, 100);
+    }
+  }
+
+  typeWriter();
+});
+
+
+    document.body.addEventListener('click', () => {
+      const bgMusic = document.getElementById('bgMusic');
+      if (bgMusic.paused) bgMusic.play();
+    }, { once: true });
+  </script>
+</body>
+</html>
